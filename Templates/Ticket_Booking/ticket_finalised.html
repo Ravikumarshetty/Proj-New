@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Train_Report</title>
+  </head>
+  <body>
+    <h1>Please find below the details of  Your Ticket</h1>
+    <div class="Reports">
+      {% if insert_ticket_details %}
+
+    <table border=2px solid black>
+      <thead>
+      <th>IRCTC ID</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Phone</th>
+      <th>Email</th>
+    </thead>
+    {%for x in insert_ticket_details%}
+    <tr>
+      <td>{{x.IRCTC_ID}}</td>
+      <td>{{x.name}}</td>
+      <td>{{x.age}}</td>
+      <td>{{x.gender}}</td>
+      <td>{{x.phone}}</td>
+      <td>{{x.email}}</td>
+    </tr>
+    {% endfor %}
+    </table>
+    {% else %}
+    <p>NO RECORDS FOUND</p>
+    {% endif %}
+
+    </div>
+    <div class="List">
+     <h2>Tickets Details in the form of a List</h2>
+     {%if insert_ticket_details%}
+
+     <ol>
+       {%for x in insert_ticket_details%}
+       <li>IRCTC ID:{{x.IRCTC_ID}}</li>
+       <ul>
+
+         <li>Name:{{x.name}}</li>
+         <li>Age:{{x.age}}</li>
+         <li>Gender:{{x.gender}}</li>
+         <li>Phone:{{x.phone}}</li>
+         <li>Email:{{x.email}}</li>
+
+       </ul>
+       {%endfor%}
+     </ol>
+     {%endif%}
+    </div>
+  </body>
+</html>
+
+
